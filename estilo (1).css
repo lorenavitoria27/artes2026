@@ -1,0 +1,754 @@
+/* =========================================================
+   AS LENDAS DA MATA
+   Estilo artístico - azul, natureza e mistério
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. CONFIGURAÇÕES GERAIS
+   --------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0 8%;
+    min-height: 100vh;
+
+    color: #eaf7fa;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+
+    /* Várias camadas de azul */
+    background:
+        radial-gradient(circle at 50% 0%, #246b88 0%, transparent 32%),
+        radial-gradient(circle at 0% 100%, #123e54 0%, transparent 35%),
+        radial-gradient(circle at 100% 40%, #164b64 0%, transparent 30%),
+        linear-gradient(135deg, #041722, #082b3d 45%, #061b2b);
+
+    background-attachment: fixed;
+
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   2. EFEITO DE LUZ NO FUNDO
+   --------------------------------------------------------- */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    top: -180px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(120, 220, 245, 0.08);
+    border-radius: 50%;
+
+    filter: blur(30px);
+
+    pointer-events: none;
+    z-index: -2;
+}
+
+
+/* ---------------------------------------------------------
+   3. "FOLHAS" INVADINDO AS BORDAS
+   --------------------------------------------------------- */
+
+/* Galhos decorativos dos lados */
+
+body::after {
+    content: "";
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 10;
+
+    background:
+
+        /* folhas do canto superior esquerdo */
+        radial-gradient(ellipse 25px 55px at 2% 8%,
+            rgba(38, 104, 77, 0.85) 0%,
+            transparent 70%),
+
+        radial-gradient(ellipse 20px 48px at 5% 15%,
+            rgba(25, 79, 60, 0.9) 0%,
+            transparent 70%),
+
+        radial-gradient(ellipse 18px 45px at 1% 23%,
+            rgba(50, 125, 91, 0.8) 0%,
+            transparent 70%),
+
+        /* folhas do canto superior direito */
+        radial-gradient(ellipse 25px 55px at 98% 7%,
+            rgba(38, 104, 77, 0.85) 0%,
+            transparent 70%),
+
+        radial-gradient(ellipse 20px 48px at 95% 14%,
+            rgba(25, 79, 60, 0.9) 0%,
+            transparent 70%),
+
+        radial-gradient(ellipse 18px 45px at 99% 22%,
+            rgba(50, 125, 91, 0.8) 0%,
+            transparent 70%),
+
+        /* folhas inferiores */
+        radial-gradient(ellipse 25px 55px at 4% 94%,
+            rgba(28, 88, 66, 0.85) 0%,
+            transparent 70%),
+
+        radial-gradient(ellipse 20px 48px at 8% 98%,
+            rgba(44, 113, 82, 0.8) 0%,
+            transparent 70%),
+
+        radial-gradient(ellipse 25px 55px at 96% 94%,
+            rgba(28, 88, 66, 0.85) 0%,
+            transparent 70%),
+
+        radial-gradient(ellipse 20px 48px at 92% 98%,
+            rgba(44, 113, 82, 0.8) 0%,
+            transparent 70%);
+
+    opacity: 0.9;
+}
+
+
+/* ---------------------------------------------------------
+   4. PARTÍCULAS LUMINOSAS
+   --------------------------------------------------------- */
+
+#header::before,
+#header::after {
+    content: "✦   ·       ✧        ·   ✦       ·       ✧";
+    position: absolute;
+
+    width: 100%;
+    left: 0;
+
+    color: rgba(190, 240, 250, 0.65);
+    font-size: 15px;
+    letter-spacing: 25px;
+
+    pointer-events: none;
+
+    animation: brilho 5s ease-in-out infinite alternate;
+}
+
+#header::before {
+    top: 100px;
+}
+
+#header::after {
+    bottom: 25px;
+    transform: scaleX(-1);
+    opacity: 0.5;
+}
+
+@keyframes brilho {
+    from {
+        opacity: 0.25;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: translateY(-7px);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   5. MENU
+   --------------------------------------------------------- */
+
+#header {
+    position: relative;
+
+    width: 100%;
+    min-height: 180px;
+
+    padding: 20px 25px 40px;
+
+    margin-bottom: 45px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17, 69, 91, 0.78),
+            rgba(5, 30, 45, 0.65)
+        );
+
+    border-bottom: 1px solid rgba(160, 225, 240, 0.25);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.3),
+        inset 0 -1px rgba(190, 240, 250, 0.15);
+
+    border-radius: 0 0 35px 35px;
+}
+
+
+/* Menu no canto superior direito */
+
+#header table {
+    position: absolute;
+
+    top: 18px;
+    right: 25px;
+
+    border-collapse: separate;
+    border-spacing: 10px 0;
+
+    z-index: 20;
+}
+
+#header td {
+    padding: 0;
+}
+
+#header h2 {
+    margin: 0;
+}
+
+
+/* Links do menu */
+
+#header a {
+    display: block;
+
+    padding: 9px 15px;
+
+    color: #d9f5fa;
+    text-decoration: none;
+
+    font-size: 17px;
+
+    border: 1px solid rgba(150, 225, 240, 0.25);
+    border-radius: 20px;
+
+    background: rgba(8, 40, 55, 0.65);
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+#header a:hover {
+    color: white;
+
+    background: rgba(45, 122, 151, 0.55);
+
+    box-shadow:
+        0 0 12px rgba(110, 220, 240, 0.5),
+        0 0 25px rgba(80, 180, 210, 0.2);
+
+    transform: translateY(-3px);
+}
+
+
+/* ---------------------------------------------------------
+   6. TÍTULOS
+   --------------------------------------------------------- */
+
+h1 {
+    margin-top: 70px;
+    margin-bottom: 25px;
+
+    color: #e8faff;
+
+    font-size: clamp(30px, 5vw, 48px);
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(125, 220, 240, 0.4),
+        0 4px 20px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+}
+
+
+/* Pequeno detalhe abaixo dos títulos */
+
+h1::after {
+    content: "✦";
+
+    display: block;
+
+    margin-top: 12px;
+
+    color: #8bd5df;
+
+    font-size: 16px;
+
+    text-shadow:
+        0 0 10px rgba(120, 230, 245, 0.8);
+}
+
+
+h2 {
+    color: #bfeaf2;
+
+    text-shadow:
+        0 0 8px rgba(100, 210, 235, 0.25);
+}
+
+
+h3 {
+    color: #d5edf1;
+
+    font-weight: normal;
+}
+
+
+h4 {
+    max-width: 950px;
+
+    margin: 20px auto;
+
+    color: #d3e8ed;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    font-weight: normal;
+
+    text-align: justify;
+
+    background: rgba(5, 34, 48, 0.48);
+
+    padding: 20px 25px;
+
+    border-left: 2px solid rgba(100, 190, 210, 0.5);
+    border-right: 2px solid rgba(100, 190, 210, 0.15);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ---------------------------------------------------------
+   7. ÁREA DAS LENDAS
+   --------------------------------------------------------- */
+
+ol {
+    max-width: 1100px;
+
+    margin: 30px auto;
+    padding: 0;
+
+    list-style-position: inside;
+}
+
+
+/* Cada lenda vira uma espécie de quadro */
+
+li {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    margin: 35px auto;
+    padding: 28px;
+
+    list-style-position: inside;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 70, 91, 0.82),
+            rgba(5, 37, 52, 0.82)
+        );
+
+    border: 1px solid rgba(150, 225, 240, 0.25);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        inset 0 0 25px rgba(100, 210, 230, 0.04);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Brilho quando passa o mouse */
+
+li:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(150, 230, 245, 0.55);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(70, 190, 215, 0.12);
+}
+
+
+/* ---------------------------------------------------------
+   8. IMAGENS DAS LENDAS
+   --------------------------------------------------------- */
+
+li img {
+    width: 300px;
+    height: auto;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+
+    padding: 8px;
+
+    background:
+        linear-gradient(135deg, #b9e7ed, #397f92, #b9e7ed);
+
+    border: 2px solid rgba(190, 240, 245, 0.6);
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 0 0 5px rgba(5, 32, 45, 0.8),
+        0 0 0 7px rgba(120, 190, 205, 0.35),
+        0 12px 30px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+/* Brilho da imagem */
+
+li img:hover {
+    transform: scale(1.035) rotate(-1deg);
+
+    filter:
+        brightness(1.08)
+        saturate(1.08);
+
+    box-shadow:
+        0 0 0 5px rgba(5, 32, 45, 0.8),
+        0 0 0 7px rgba(130, 220, 235, 0.6),
+        0 0 30px rgba(80, 200, 225, 0.35);
+}
+
+
+/* Texto das lendas */
+
+li div {
+    flex: 1;
+
+    margin-left: 0 !important;
+}
+
+
+li p {
+    color: #d2e8ec;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   9. MATERIAIS USADOS
+   --------------------------------------------------------- */
+
+body > h1:last-of-type {
+    margin-top: 70px;
+}
+
+body > h1:last-of-type + br + h4 {
+    max-width: 850px;
+}
+
+
+/* ---------------------------------------------------------
+   10. BOTÃO / IMAGEM DA SETA
+   --------------------------------------------------------- */
+
+div[img] {
+    margin: 40px auto;
+
+    text-align: center !important;
+}
+
+
+/* A âncora da página */
+
+div[img] a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    padding: 8px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(74, 155, 180, 0.65),
+            rgba(8, 45, 62, 0.9)
+        );
+
+    border: 1px solid rgba(170, 230, 240, 0.4);
+
+    box-shadow:
+        0 0 15px rgba(70, 190, 215, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+div[img] a:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 15px rgba(90, 210, 235, 0.5),
+        0 0 30px rgba(70, 190, 215, 0.2);
+}
+
+
+div[img] img {
+    width: 28px !important;
+    height: auto !important;
+}
+
+
+/* ---------------------------------------------------------
+   11. LINHA FINAL
+   --------------------------------------------------------- */
+
+hr {
+    max-width: 900px;
+
+    border: none;
+
+    border-top: 1px solid rgba(150, 220, 235, 0.25);
+
+    margin: 50px auto 20px;
+}
+
+
+/* ---------------------------------------------------------
+   12. RODAPÉ
+   --------------------------------------------------------- */
+
+#footer {
+    height: 25px;
+}
+
+
+h5 {
+    color: rgba(190, 220, 225, 0.65);
+
+    font-size: 12px;
+
+    font-weight: normal;
+
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   13. PÁGINA DE CRÉDITOS
+   --------------------------------------------------------- */
+
+/* O título dos créditos */
+
+body > h1:first-of-type {
+    margin-top: 90px;
+}
+
+
+/* Texto de apresentação */
+
+body > h3 {
+    max-width: 850px;
+
+    margin: 20px auto;
+
+    padding: 22px 30px;
+
+    background: rgba(6, 39, 53, 0.65);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(130, 210, 225, 0.2);
+
+    line-height: 1.8;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* "1 DS B" */
+
+body > h2 {
+    display: inline-block;
+
+    margin-top: 35px;
+    padding: 12px 25px;
+
+    color: #d9f6fa;
+
+    background: rgba(21, 88, 109, 0.55);
+
+    border: 1px solid rgba(140, 220, 235, 0.25);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 20px rgba(60, 180, 205, 0.08);
+}
+
+
+/* Nomes */
+
+body > h3:not(#header h3) {
+    max-width: 500px;
+
+    padding: 10px 20px;
+
+    margin: 8px auto;
+
+    background: rgba(8, 46, 61, 0.45);
+
+    border: none;
+
+    border-bottom: 1px solid rgba(130, 210, 225, 0.12);
+
+    border-radius: 8px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+
+body > h3:not(#header h3):hover {
+    transform: translateX(5px);
+
+    background: rgba(34, 105, 127, 0.45);
+
+    text-shadow:
+        0 0 10px rgba(130, 220, 240, 0.5);
+}
+
+
+/* ---------------------------------------------------------
+   14. ANIMAÇÃO SUAVE DAS LUZES
+   --------------------------------------------------------- */
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   15. RESPONSIVIDADE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+    body {
+        padding: 0 4%;
+    }
+
+    #header table {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        margin: 0 auto;
+    }
+
+    #header {
+        padding-top: 15px;
+    }
+
+    li {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    li img {
+        width: min(300px, 90%);
+    }
+
+    li p {
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   16. SELEÇÃO DE TEXTO
+   --------------------------------------------------------- */
+
+::selection {
+    background: rgba(70, 160, 185, 0.65);
+    color: white;
+}
